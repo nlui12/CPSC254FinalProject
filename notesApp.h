@@ -2,7 +2,6 @@
 #define NOTESAPP_H
 
 #include <gtkmm.h>
-
 class notesApp : public Gtk::Window
 {
     public:
@@ -24,7 +23,7 @@ class notesApp : public Gtk::Window
     void on_menu_choices_one();
     void on_menu_choices_two();
     void on_addEntry_clicked();
-    void add_entry(Glib::ustring task, int percentage);
+    void add_entry(Glib::ustring task);
     void on_help_clicked();
     void on_selection_changed();
     void on_text_changed();

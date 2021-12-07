@@ -1,7 +1,8 @@
 #include "notesApp.h"
 #include <gtkmm/stock.h>
 #include <iostream>
-
+#include <fstream>
+#include <string>
 notesApp::notesApp()
 : m_Box(Gtk::ORIENTATION_VERTICAL),
   d_Box(Gtk::ORIENTATION_VERTICAL),
@@ -55,7 +56,7 @@ m_refTreeSelection->signal_changed().connect( sigc::mem_fun(*this,&notesApp::on_
 count=1;
 
 m_TreeView.append_column("ID", m_Columns.m_col_id);
-m_TreeView.append_column("Task Description", m_Columns.m_col_name);
+m_TreeView.append_column("Note Entry", m_Columns.m_col_name);
 
 d_Box.add(h3_Box);
 h3_Box.set_vexpand(true);
@@ -81,12 +82,15 @@ void notesApp::on_addEntry_clicked() {
     row = *(m_refTreeModel->append());
     row[m_Columns.m_col_id] = count;
     row[m_Columns.m_col_name] = notesEntry->get_text();
+    std::ofstream outObj;
+    outObj.open("notes.txt", std::ios_base::app);
+    outObj << notesEntry->get_text() << std::endl;
+    outObj.close();
 }
 
-void notesApp::add_entry(Glib::ustring task, int percentage)
+void notesApp::add_entry(Glib::ustring task)
 {
   std::cout << task << std::endl;
-    std::cout << percentage << std::endl;
 
 }
 
