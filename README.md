@@ -9,10 +9,7 @@ This program is a note-taking application written in C++ and uses the graphics l
 ## **How To Compile**
 In order to compile this program, you need to have gtkmm-3.0 and g++ installed on your system.
 To do that you will use the following commands:
-
   - sudo apt-get install libgtkmm-3.0-dev
-If you do not have g++ installed, do the following command:
-
   - sudo apt install g++
  
 To compile use the following commands:
