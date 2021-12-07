@@ -84,7 +84,7 @@ void notesApp::on_addEntry_clicked() {
     row[m_Columns.m_col_name] = notesEntry->get_text();
     std::ofstream outObj;
     outObj.open("notes.txt", std::ios_base::app);
-    outObj << notesEntry->get_text() << std::endl;
+    outObj << "note ID: " << count << " - " << notesEntry->get_text() << std::endl;
     outObj.close();
 }
 

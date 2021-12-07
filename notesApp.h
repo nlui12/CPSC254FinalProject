@@ -7,27 +7,16 @@ class notesApp : public Gtk::Window
     public:
       notesApp();
       virtual ~notesApp();
-      static const int yes_response = -8;
-      static const int no_response = -9;
-      static const int ok_response = -5;
-      Gtk::Label *topText = Gtk::manage(new Gtk::Label());
-      Gtk::Label *topTextRight = Gtk::manage(new Gtk::Label());
-      Gtk::Grid *grid = Gtk::manage(new Gtk::Grid);
       Gtk::Entry *notesEntry = Gtk::manage(new Gtk::Entry());
-      Gtk::Button *b_add = Gtk::manage(new Gtk::Button("Add New Task"));
-      Gtk::TreeViewColumn* pColumn = Gtk::manage(new Gtk::TreeViewColumn);
+      Gtk::Button *b_add = Gtk::manage(new Gtk::Button("Add New Note"));
       Glib::RefPtr<Gtk::AccelGroup> group = Gtk::AccelGroup::create();
       Glib::RefPtr<Gtk::Adjustment> m_adjustment;
 
     protected:
-    void on_menu_choices_one();
-    void on_menu_choices_two();
     void on_addEntry_clicked();
     void add_entry(Glib::ustring task);
-    void on_help_clicked();
     void on_selection_changed();
     void on_text_changed();
-    void on_scale_changed();
 
     class ModelColumns : public Gtk::TreeModel::ColumnRecord
   {
@@ -51,11 +40,6 @@ class notesApp : public Gtk::Window
   Gtk::Box h1_Box;
   Gtk::Box h2_Box;
   Gtk::Box h3_Box;
-  Gtk::EventBox event_box;
-  Gtk::Label m_Label;
-  Gtk::Scale m_HScale;
-  Gdk::Pixbuf *pixmap;
-
   Gtk::ScrolledWindow m_ScrolledWindow;
   Gtk::TreeView m_TreeView;
   Glib::RefPtr<Gtk::ListStore> m_refTreeModel;
