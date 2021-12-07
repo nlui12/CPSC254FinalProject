@@ -1,7 +1,7 @@
 # **CPSC 254 Final Project - NotesApp**
-Nicholas Lui
-Omar Mann
-Cesar Sepulveda
+- Nicholas Lui
+- Omar Mann
+- Cesar Sepulveda
 
 ## **Program Description**
 This program is a note-taking application written in C++ and uses the graphics library GTK to provide a graphical user interface (GUI) for users. First, the application will use the GUI to prompt the user to enter some notes. It will then append the date to the notes and create a text file with both the notes and the date.
