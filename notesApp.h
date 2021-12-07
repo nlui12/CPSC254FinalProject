@@ -16,25 +16,17 @@ class notesApp : public Gtk::Window
       Gtk::Grid *grid = Gtk::manage(new Gtk::Grid);
       Gtk::Entry *notesEntry = Gtk::manage(new Gtk::Entry());
       Gtk::Button *b_add = Gtk::manage(new Gtk::Button("Add New Task"));
-      Gtk::Button *b_saveEdit = Gtk::manage(new Gtk::Button("Save Edit"));
-      Gtk::Button *b_delete = Gtk::manage(new Gtk::Button("Delete Task"));
       Gtk::TreeViewColumn* pColumn = Gtk::manage(new Gtk::TreeViewColumn);
       Glib::RefPtr<Gtk::AccelGroup> group = Gtk::AccelGroup::create();
       Glib::RefPtr<Gtk::Adjustment> m_adjustment;
 
     protected:
-    void on_menu_file_new_generic();
-    void on_menu_file_quit();
-    void on_menu_others();
-
     void on_menu_choices_one();
     void on_menu_choices_two();
     void on_addEntry_clicked();
     void add_entry(Glib::ustring task, int percentage);
     void on_help_clicked();
-    void onSaveEdit_clicked();
     void on_selection_changed();
-    void on_delete_clicked();
     void on_text_changed();
     void on_scale_changed();
 
@@ -43,10 +35,9 @@ class notesApp : public Gtk::Window
     public:
 
     ModelColumns()
-    { add(m_col_id); add(m_col_percentage); add(m_col_name);}
+    { add(m_col_id); add(m_col_name);}
 
     Gtk::TreeModelColumn<unsigned int> m_col_id;
-    Gtk::TreeModelColumn<int> m_col_percentage;
     Gtk::TreeModelColumn<Glib::ustring> m_col_name;
   };
 
