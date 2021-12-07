@@ -35,6 +35,19 @@ notesApp::notesApp()
   h2_Box.pack_start(*b_add, false, true, 5);
 
   Glib::ustring someNote = "some note";
+  //adds an edit button
+  b_edit->signal_clicked().connect(sigc::mem_fun(*this, &notesApp::on_edit_clicked));
+  b_edit->set_sensitive(false);
+  h2_Box.pack_start(*b_edit, false, true, 5);
+
+  //adds a delete button
+  b_delete->signal_clicked().connect(sigc::mem_fun(*this, &notesApp::on_delete_clicked));
+  b_delete->set_sensitive(false);
+  h2_Box.pack_start(*b_delete, false, true, 5);
+
+
+
+
 
   m_ScrolledWindow.add(m_TreeView);
   m_ScrolledWindow.set_policy(Gtk::POLICY_AUTOMATIC,Gtk::POLICY_AUTOMATIC);
@@ -90,7 +103,14 @@ notesApp::~notesApp()
 
 void notesApp::on_text_changed()
 {
-     std::cout << "text has changed" << std::endl;
+  bool is_button_active = b_edit->get_sensitive();
+
+  if(any_row_selected && !is_button_active)
+  {
+      b_edit->set_sensitive(true);
+  }
+
+  std::cout << "text has changed" << std::endl;
 }
 
 void notesApp::on_addEntry_clicked() {
@@ -116,6 +136,9 @@ void notesApp::on_selection_changed()
 {
     any_row_selected = true;
 
+    b_edit->set_sensitive(true);
+    b_delete->set_sensitive(true);
+
     Gtk::TreeModel::iterator iter = m_refTreeSelection->get_selected();
     Gtk::TreeModel::Row row = *iter;
 
@@ -125,4 +148,21 @@ void notesApp::on_selection_changed()
     notesEntry->set_text(note_string);
 
   std::cout<< selected_id<< std::endl;
+}
+
+void notesApp::on_edit_clicked()
+{
+    b_edit->set_sensitive(false);
+
+    Gtk::TreeModel::iterator iter = m_refTreeSelection->get_selected();
+    Gtk::TreeModel::Row row = *iter;
+
+    Glib::ustring new_entry = notesEntry->get_text();
+    row.set_value(m_Columns.m_col_name, new_entry);
+}
+
+void notesApp::on_delete_clicked()
+{
+    Gtk::TreeModel::iterator store_iter = m_refTreeSelection->get_selected();
+    m_refTreeModel->erase(store_iter);
 }

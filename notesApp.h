@@ -9,6 +9,8 @@ class notesApp : public Gtk::Window
       virtual ~notesApp();
       Gtk::Entry *notesEntry = Gtk::manage(new Gtk::Entry());
       Gtk::Button *b_add = Gtk::manage(new Gtk::Button("Add New Note"));
+      Gtk::Button *b_edit = Gtk::manage(new Gtk::Button("Save Edit"));
+      Gtk::Button *b_delete = Gtk::manage(new Gtk::Button("Delete Note"));
       Glib::RefPtr<Gtk::AccelGroup> group = Gtk::AccelGroup::create();
       Glib::RefPtr<Gtk::Adjustment> m_adjustment;
 
@@ -17,6 +19,8 @@ class notesApp : public Gtk::Window
     void add_entry(Glib::ustring note);
     void on_selection_changed();
     void on_text_changed();
+    void on_delete_clicked();
+    void on_edit_clicked();
 
     class ModelColumns : public Gtk::TreeModel::ColumnRecord
   {
