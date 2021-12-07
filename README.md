@@ -9,9 +9,9 @@ This program is a note-taking application written in C++ and uses the graphics l
 ## **How To Compile**
 In order to compile this program, you need to have gtkmm-3.0 and g++ installed on your system.
 To compile use the following commands:
-  - g++ -c -Wall notesApp.cc -o notesApp.o `pkg-config gtkmm-3.0 --cflags`
-  - g++ -c -Wall main.cc -o main.o `pkg-config gtkmm-3.0 --cflags`
-  - g++ notesApp.o main.o notesApp `pkg-config gtkmm-3.0 --libs`
+  - g++ -c -Wall notesApp.cc -o notesApp.o \`pkg-config gtkmm-3.0 --cflags\`
+  - g++ -c -Wall main.cc -o main.o \`pkg-config gtkmm-3.0 --cflags\`
+  - g++ notesApp.o main.o notesApp \`pkg-config gtkmm-3.0 --libs\`
 To execute and run the program use the following command:
   - ./notesApp
 
