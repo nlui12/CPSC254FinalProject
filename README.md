@@ -16,7 +16,7 @@ To execute and run the program use the following command:
   - ./notesApp
 
 ## Libraries
-  - iostream: Is C++’s Standard Input/Output Streams Library. This library defines the standard input/output stream       objects used in C++.
-  - gtkmm/stock.h: Is a GTK header that adds various functions such as add(), lookup() and get_ids() to help manage       stock items.
+  - iostream: Is C++’s Standard Input/Output Streams Library. This library defines the standard input/output stream objects used in C++.
+  - gtkmm/stock.h: Is a GTK header that adds various functions such as add(), lookup() and get_ids() to help manage stock items.
   - gtkmm.h: The gtkmm.h header includes the entire gtkmm kit.
-  - gtkmm/application.h: The Gtk::Application header handles gtkmm initialization, session management, basic             scriptability, and shell integration by exporting menus and actions. It also allows for the life-cycle of an         application to be applied to the life-cycle of a list of top-level windows.
+  - gtkmm/application.h: The Gtk::Application header handles gtkmm initialization, session management, basic scriptability, and shell integration by exporting menus and actions. It also allows for the life-cycle of an application to be applied to the life-cycle of a list of top-level windows.
