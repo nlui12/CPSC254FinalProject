@@ -11,7 +11,6 @@ In order to compile this program, you need to have gtkmm-3.0 and g++ installed o
 To do that you will use the following commands:
   - sudo apt-get install libgtkmm-3.0-dev
   - sudo apt install g++
- 
 To compile use the following commands:
   - g++ -c -Wall notesApp.cc -o notesApp.o \`pkg-config gtkmm-3.0 --cflags\`
   - g++ -c -Wall main.cc -o main.o \`pkg-config gtkmm-3.0 --cflags\`
@@ -26,3 +25,4 @@ To execute and run the program use the following command:
   - gtkmm/application.h: The Gtk::Application header handles gtkmm initialization, session management, basic scriptability, and shell integration by exporting menus and actions. It also allows for the life-cycle of an application to be applied to the life-cycle of a list of top-level windows.
   - fstream: The input/output stream class to operate on files.
   - string: Strings are objects that represent sequences of characters.
+

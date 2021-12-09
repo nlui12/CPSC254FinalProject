@@ -11,7 +11,6 @@ notesApp::notesApp()
   h3_Box(Gtk::ORIENTATION_HORIZONTAL)
 
 {
-
   set_title("Notes");
   set_default_size(800,400); //window size resolution
   add(m_Box); //adding a main box widget
@@ -45,17 +44,13 @@ notesApp::notesApp()
   b_delete->set_sensitive(false);
   h2_Box.pack_start(*b_delete, false, true, 5);
 
-
-
-
-
   m_ScrolledWindow.add(m_TreeView);
   m_ScrolledWindow.set_policy(Gtk::POLICY_AUTOMATIC,Gtk::POLICY_AUTOMATIC);
 
   //Create the Tree model to display list of notes:
   m_refTreeModel = Gtk::ListStore::create(m_Columns);
   m_TreeView.set_model(m_refTreeModel);
-
+    
 count = 1;
 
 //reads from notes.txt and appends lines to our TreeModel
@@ -103,6 +98,7 @@ notesApp::~notesApp()
 
 void notesApp::on_text_changed()
 {
+
   bool is_button_active = b_edit->get_sensitive();
 
   if(any_row_selected && !is_button_active)
@@ -111,6 +107,7 @@ void notesApp::on_text_changed()
   }
 
   std::cout << "text has changed" << std::endl;
+
 }
 
 void notesApp::on_addEntry_clicked() {
@@ -139,6 +136,7 @@ void notesApp::on_selection_changed()
     b_edit->set_sensitive(true);
     b_delete->set_sensitive(true);
 
+
     Gtk::TreeModel::iterator iter = m_refTreeSelection->get_selected();
     Gtk::TreeModel::Row row = *iter;
 
@@ -146,6 +144,7 @@ void notesApp::on_selection_changed()
     unsigned int selected_id = row.get_value(m_Columns.m_col_id);
 
     notesEntry->set_text(note_string);
+
 
   std::cout<< selected_id<< std::endl;
 }
@@ -166,3 +165,4 @@ void notesApp::on_delete_clicked()
     Gtk::TreeModel::iterator store_iter = m_refTreeSelection->get_selected();
     m_refTreeModel->erase(store_iter);
 }
+
