@@ -24,3 +24,5 @@ To execute and run the program use the following command:
   - gtkmm/stock.h: Is a GTK header that adds various functions such as add(), lookup() and get_ids() to help manage stock items.
   - gtkmm.h: The gtkmm.h header includes the entire gtkmm kit.
   - gtkmm/application.h: The Gtk::Application header handles gtkmm initialization, session management, basic scriptability, and shell integration by exporting menus and actions. It also allows for the life-cycle of an application to be applied to the life-cycle of a list of top-level windows.
+  - fstream: The input/output stream class to operate on files.
+  - string: Strings are objects that represent sequences of characters.
